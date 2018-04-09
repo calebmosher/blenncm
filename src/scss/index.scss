@@ -1,0 +1,296 @@
+/**
+ * Main Styles
+ * (c) 2016 Blenncm.com
+ */
+
+
+
+/* ---------------------------------------- *\
+ * General
+\* ---------------------------------------- */
+
+@import url("https://fonts.googleapis.com/css?family=Montserrat|Open+Sans");
+
+@mixin clearfix() {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin mq($width) {
+	@media (max-width: $width) {
+		@content;
+	}
+}
+
+$md: 767px;
+
+$black: #000;
+$white: #fff;
+$gray: #eee;
+$strawberry: #ff6f6f;
+
+$font-lg: 20px;
+$font-md: 15px;
+$title: Montserrat, Helvetica, Arial, sans-serif;
+$copy: "Open Sans", Helvetica, Arial, sans-serif;
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+	outline: none;
+	border: none;
+	border-spacing: 0;
+}
+
+html {
+	font-family: $copy;
+}
+
+h1,
+h2,
+h3,
+h4,
+.title {
+	font-family: $title;
+	font-weight: normal;
+}
+
+.container {
+	width: 100%;
+	max-width: 1000px;
+	padding: 0 20px;
+	margin: 0 auto;
+}
+
+.button {
+	display: block;
+	font-family: $title;
+	position: relative;
+	width: 250px;
+	height: 60px;
+	text-transform: uppercase;
+	text-align: center;
+	line-height: 60px;
+	background: $strawberry;
+	margin: 0 auto;
+
+	span {
+		border: 1px solid $black;
+		color: $black;
+		display: block;
+		width: 100%;
+		height: 100%;
+		transform: translate3d(-10px, 10px, 0);
+		transition: transform 150ms ease-out;
+	}
+
+	&:hover span {
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+
+
+/* ---------------------------------------- *\
+ * Nav
+\* ---------------------------------------- */
+
+nav {
+	padding: 50px 0;
+	font-family: $title;
+	@include clearfix;
+
+	.title {
+		width: 50%;
+		float: left;
+		background-image: url("/assets/logo.svg");
+		background-size: contain;
+		background-repeat: no-repeat;
+		padding-left: 90px;
+		padding-top: 12px;
+		height: 75px;
+		font-size: $font-lg;
+
+		span {
+			color: $strawberry;
+			font-size: $font-md;
+		}
+	}
+
+	ul {
+		width: 50%;
+		float: left;
+		list-style-type: none;
+		text-align: right;
+		line-height: 75px;
+
+		li {
+			display: inline-block;
+
+			a {
+				color: $black;
+				text-transform: uppercase;
+				margin-left: 30px;
+				padding: 5px;
+				border-bottom: 0 solid $strawberry;
+				transition:
+					border 100ms ease-in-out,
+					background-color 200ms ease-in-out;
+
+				&.active {
+					border-width: 3px;
+				}
+
+				&:hover {
+					background-color: $strawberry;
+				}
+			}
+		}
+	}
+}
+
+
+
+/* ---------------------------------------- *\
+ * Main
+\* ---------------------------------------- */
+
+main {
+	.intro {
+		font-size: $font-md;
+		text-align: center;
+		text-transform: uppercase;
+		margin: 50px auto;
+	}
+
+	.sections {
+		margin-top: 100px;
+
+		section {
+			height: 400px;
+			margin-bottom: 100px;
+			@include clearfix;
+
+			.image,
+			.title {
+				width: 50%;
+				height: 100%;
+				float: left;
+			}
+
+			.image {
+				background: $gray;
+			}
+
+			.title {
+				display: flex;
+				align-items: center;
+				text-align: center;
+
+				.project-title {
+					width: 100%;
+					margin: 0 auto;
+					text-transform: uppercase;
+					font-size: $font-lg;
+
+					span {
+						font-size: $font-md;
+					}
+
+					a {
+						box-sizing: content-box;
+						display: block;
+						width: 100%;
+						position: relative;
+						right: 25%;
+						padding: 10px 0 10px 25%;
+						color: $black;
+						transition: background-color 200ms ease-in-out;
+
+						&.left {
+							right: auto;
+							padding-left: 0;
+							padding-right: 25%;
+						}
+
+						&:hover {
+							background-color: $strawberry;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+/* ---------------------------------------- *\
+ * Footer
+\* ---------------------------------------- */
+
+footer {
+	margin-top: 300px;
+	margin-bottom: 100px;
+
+	.social {
+		text-align: center;
+
+		a {
+			display: inline-block;
+			width: 40px;
+			height: 40px;
+			margin: 0 20px;
+			background-size: contain;
+			background-repeat: no-repeat;
+
+			&.linkedin {
+				background-image: url("/assets/icon-linkedin-000000.svg");
+
+				&:hover {
+					background-image: url("/assets/icon-linkedin-ff6f6f.svg");
+				}
+			}
+
+			&.email {
+				background-image: url("/assets/icon-email-000000.svg");
+
+				&:hover {
+					background-image: url("/assets/icon-email-ff6f6f.svg");
+				}
+			}
+
+			&.pinterest {
+				background-image: url("/assets/icon-pinterest-000000.svg");
+
+				&:hover {
+					background-image: url("/assets/icon-pinterest-ff6f6f.svg");
+				}
+			}
+		}
+	}
+
+	.copyright {
+		width: 30%;
+		margin: 25px auto;
+		border-top: 1px solid $black;
+		padding: 25px 0;
+		color: $black;
+		font-size: $font-md;
+		text-align: center;
+
+
+		a {
+			color: $black;
+
+			&:hover {
+				color: $strawberry;
+			}
+		}
+	}
+}
