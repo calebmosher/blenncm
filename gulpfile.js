@@ -9,7 +9,7 @@ var gulp = require("gulp"),
 
 // HTML
 gulp.task("html", function() {
-	return gulp.src("src/html/*.html")
+	return gulp.src("src/html/*")
 		.pipe(rename(function(path) {
 			path.dirname = path.basename === "index" ? "" : path.basename;
 			path.basename = "index";
@@ -30,8 +30,13 @@ gulp.task("assets", function () {
 
 // CSS
 gulp.task("sass", function() {
-	return gulp.src("src/scss/*.scss")
+	return gulp.src("src/scss/index.scss")
 		.pipe(sass())
+        .on("error", notify.onError({
+            icon: "images/fail.png",
+            title: "Sass Error",
+            message: "<%= error.message %>"
+        }))
 		.pipe(rename("main.built.css"))
 		.pipe(gulp.dest("public/dist/built"))
 		.pipe(notify("Finished Sass"));
@@ -46,6 +51,11 @@ gulp.task("css", ["sass"]);
 gulp.task("browserify", function() {
     return browserify("src/js/index.js")
 		.bundle()
+        .on("error", notify.onError({
+            icon: "images/fail.png",
+            title: "Javascript Error",
+            message: "<%= error.message %>"
+        }))
 		.pipe(source("main.built.js"))
 		.pipe(gulp.dest("public/dist/built"))
 		.pipe(notify("Finished Browserify"));

@@ -1,0 +1,27 @@
+/**
+ * About Page Styles
+ * (c) 2016 Blenncm.com
+ */
+
+
+main.about {
+    .image {
+        background-image: url("/assets/self.jpg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 350px;
+        margin: 100px 0;
+    }
+
+    .copy {
+        margin-bottom: 100px;
+
+        p {
+            font-family: $copy;
+            font-size: $font-sm;
+            margin: 0 auto 30px;
+            max-width: 800px;
+        }
+    }
+}

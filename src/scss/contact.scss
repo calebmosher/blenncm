@@ -1,0 +1,31 @@
+/**
+ * Contact Page Styles
+ * (c) 2016 Blenncm.com
+ */
+
+
+main.contact {
+    .contact-form {
+        width: 100%;
+        max-width: 550px;
+        margin: 100px auto 0;
+
+        input,
+        textarea {
+            width: 100%;
+            border: 1px solid $black;
+            background-color: $gray;
+            font-family: $copy;
+            font-size: $font-sm;
+            margin-bottom: 50px;
+            padding: 0 30px;
+            height: 50px;
+        }
+
+        textarea {
+            height: 250px;
+            padding: 15px 30px;
+            margin-bottom: 100px;
+        }
+    }
+}

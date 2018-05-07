@@ -32,8 +32,9 @@ $white: #fff;
 $gray: #eee;
 $strawberry: #ff6f6f;
 
-$font-lg: 20px;
-$font-md: 15px;
+$font-lg: 24px;
+$font-md: 20px;
+$font-sm: 16px;
 $title: Montserrat, Helvetica, Arial, sans-serif;
 $copy: "Open Sans", Helvetica, Arial, sans-serif;
 
@@ -118,7 +119,7 @@ nav {
 
 		span {
 			color: $strawberry;
-			font-size: $font-md;
+			font-size: $font-sm;
 		}
 	}
 
@@ -138,16 +139,14 @@ nav {
 				margin-left: 30px;
 				padding: 5px;
 				border-bottom: 0 solid $strawberry;
-				transition:
-					border 100ms ease-in-out,
-					background-color 200ms ease-in-out;
+				transition: color 100ms ease-in-out;
 
 				&.active {
-					border-width: 3px;
+					color: $strawberry;
 				}
 
 				&:hover {
-					background-color: $strawberry;
+					color: $strawberry;
 				}
 			}
 		}
@@ -162,9 +161,8 @@ nav {
 
 main {
 	.intro {
-		font-size: $font-md;
+		font-size: $font-lg;
 		text-align: center;
-		text-transform: uppercase;
 		margin: 50px auto;
 	}
 
@@ -176,18 +174,37 @@ main {
 			margin-bottom: 100px;
 			@include clearfix;
 
+			&.project-1 .image {
+				background-image: url("/assets/cover-shopstyle.jpg");
+			}
+
+			&.project-2 .image {
+				background-image: url("/assets/cover-health-and-beauty.jpg");
+			}
+
+			&.project-3 .image {
+				background-image: url("/assets/cover-bloom.jpg");
+			}
+
+			&.project-4 .image {
+				background-image: url("/assets/cover-mirror.jpg");
+			}
+
 			.image,
 			.title {
-				width: 50%;
 				height: 100%;
 				float: left;
 			}
 
 			.image {
-				background: $gray;
+				width: 60%;
+				background-color: $gray;
+				background-size: cover;
+				background-position: center;
 			}
 
 			.title {
+				width: 40%;
 				display: flex;
 				align-items: center;
 				text-align: center;
@@ -199,7 +216,7 @@ main {
 					font-size: $font-lg;
 
 					span {
-						font-size: $font-md;
+						font-size: $font-sm;
 					}
 
 					a {
@@ -281,7 +298,7 @@ footer {
 		border-top: 1px solid $black;
 		padding: 25px 0;
 		color: $black;
-		font-size: $font-md;
+		font-size: $font-sm;
 		text-align: center;
 
 
@@ -294,3 +311,12 @@ footer {
 		}
 	}
 }
+
+
+
+/* ---------------------------------------- *\
+ * Imported Pages
+\* ---------------------------------------- */
+
+@import "./about";
+@import "./contact";
