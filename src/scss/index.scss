@@ -9,7 +9,7 @@
  * General
 \* ---------------------------------------- */
 
-@import url("https://fonts.googleapis.com/css?family=Montserrat|Open+Sans");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,600|Open+Sans:400,700");
 
 @mixin clearfix() {
   &:after {
@@ -30,11 +30,14 @@ $md: 767px;
 $black: #000;
 $white: #fff;
 $gray: #eee;
+$gray-dark: #979797;
 $strawberry: #ff6f6f;
 
+$font-xl: 30px;
 $font-lg: 24px;
 $font-md: 20px;
 $font-sm: 16px;
+$font-xs: 12px;
 $title: Montserrat, Helvetica, Arial, sans-serif;
 $copy: "Open Sans", Helvetica, Arial, sans-serif;
 
@@ -95,6 +98,10 @@ h4,
 	}
 }
 
+strong {
+	font-weight: bold;
+}
+
 
 
 /* ---------------------------------------- *\
@@ -107,6 +114,7 @@ nav {
 	@include clearfix;
 
 	.title {
+		position: relative;
 		width: 50%;
 		float: left;
 		background-image: url("/assets/logo.svg");
@@ -120,6 +128,15 @@ nav {
 		span {
 			color: $strawberry;
 			font-size: $font-sm;
+		}
+
+		a {
+			display: block;
+			width: 75px;
+			height: 75px;
+			position: absolute;
+			top: 0;
+			left: 0;
 		}
 	}
 
@@ -320,3 +337,4 @@ footer {
 
 @import "./about";
 @import "./contact";
+@import "./my-work";

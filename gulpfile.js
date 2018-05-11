@@ -9,9 +9,9 @@ var gulp = require("gulp"),
 
 // HTML
 gulp.task("html", function() {
-	return gulp.src("src/html/*")
+	return gulp.src("src/html/**")
 		.pipe(rename(function(path) {
-			path.dirname = path.basename === "index" ? "" : path.basename;
+			path.dirname += path.basename === "index" ? "" : `/${path.basename}`;
 			path.basename = "index";
 		}))
 		.pipe(gulp.dest("public"))
@@ -78,8 +78,8 @@ gulp.task("server", function() {
 gulp.task("default", ["html", "assets", "browserify", "sass"]);
 
 gulp.task("watch", ["default"], function() {
-	gulp.watch("src/js/*.js", ["browserify"]);
-	gulp.watch("src/scss/*.scss", ["sass"]);
-	gulp.watch("src/html/*.html", ["html"]);
-	gulp.watch("src/assets/*", ["assets"]);
+	gulp.watch("src/js/**/*.js", ["browserify"]);
+	gulp.watch("src/scss/**/*.scss", ["sass"]);
+	gulp.watch("src/html/**/*.html", ["html"]);
+	gulp.watch("src/assets/**", ["assets"]);
 });

@@ -1,0 +1,228 @@
+/**
+ * My Work Pages Styles
+ * (c) 2016 Blenncm.com
+ */
+
+
+ main.my-work {
+    &.mirror {
+        .title-band {
+            background-color: #ffa561;
+        }
+
+        section .section-title {
+            color: #ffa561;
+        }
+    }
+
+    .title-band {
+        width: 100%;
+        padding: 30px 0;
+        background-color: $strawberry;
+        text-align: center;
+
+        .header {
+            font-family: $title;
+            font-size: $font-xl;
+            color: $white;
+            text-transform: uppercase;
+        }
+
+        .copy {
+            font-family: $title;
+            font-size: $font-sm;
+            color: $black;
+            text-transform: uppercase;
+        }
+    }
+
+    .hero {
+        padding: 100px 0 0;
+
+        .image {
+            height: 500px;
+            background-color: $gray;
+        }
+    }
+
+    section {
+        @include clearfix;
+        padding: 100px 0;
+
+        &:nth-child(2n) {
+            background-color: $gray;
+        }
+
+        .section-title {
+            width: 200px;
+            float: left;
+            color: $strawberry;
+            font-family: $title;
+            font-size: $font-md;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .section-content {
+            max-width: 625px;
+            margin-left: 200px;
+            font-family: $copy;
+            font-size: $font-sm;
+
+            p,
+            ul {
+                font-family: inherit;
+                margin-bottom: 30px;
+            }
+
+            ul {
+                margin-left: 20px;
+            }
+
+            li:not(:last-child) {
+                margin-bottom: 15px;
+            }
+
+            > :last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        .section-content-full {
+            padding-top: 60px;
+            clear: both;
+
+            .content-full-container:not(:last-child) {
+                margin-bottom: 60px;
+            }
+
+            .content-full-title {
+                font-family: $title;
+                font-weight: bold;
+                font-size: $font-sm;
+                text-align: center;
+                text-transform: uppercase;
+                margin-bottom: 60px;
+            }
+        }
+
+        .phases {
+            display: flex;
+            justify-content: space-between;
+
+            .phase {
+                width: 25%;
+                text-align: center;
+
+                .header {
+                    text-transform: uppercase;
+                    font-size: $font-sm;
+                }
+
+                .image {
+                    height: 75px;
+                    margin: 30px 0;
+                    background-color: $white;
+                }
+            }
+        }
+
+        .moodboard {
+            .board {
+                height: 300px;
+                background-color: $white;
+            }
+        }
+
+        .color-palette {
+            .colors {
+                display: flex;
+                justify-content: space-between;
+
+                .color {
+                    width: 100px;
+                    height: 130px;
+                    position: relative;
+                    border: 1px solid $gray-dark;
+                    border-radius: 10px;
+
+                    &.hex-000000 { background-color: #000000; }
+                    &.hex-FFFFFF { background-color: #FFFFFF; }
+                    &.hex-E2E2E2 { background-color: #E2E2E2; }
+                    &.hex-979797 { background-color: #979797; }
+                    &.hex-FFA561 { background-color: #FFA561; }
+                    &.hex-464E92 { background-color: #464E92; }
+
+                    .name {
+                        box-sizing: content-box;
+                        position: absolute;
+                        left: -1px;
+                        bottom: -1px;
+                        height: 30px;
+                        width: 100%;
+                        background-color: $white;
+                        font-family: $title;
+                        font-size: $font-xs;
+                        line-height: 30px;
+                        text-align: center;
+                        border: 1px solid $gray-dark;
+                        border-radius: 0 0 10px 10px;
+                    }
+                }
+            }
+        }
+
+        .buttons-and-interactions {
+            .button-demos {
+                display: flex;
+                justify-content: space-between;
+
+                .button-demo {
+                    width: 200px;
+
+                    .header {
+                        font-family: $title;
+                        font-size: $font-sm;
+                        text-transform: uppercase;
+                        background: $white;
+                        border-radius: 10px;
+                        padding: 0 30px;
+                        height: 30px;
+                        line-height: 30px;
+                        border: 1px solid $gray-dark;
+                        margin-bottom: 30px;
+                    }
+
+                    .image {
+                        min-height: 50px;
+                        background-color: $white;
+                    }
+
+                    .copy {
+                        margin-top: 30px;
+                        font-family: $copy;
+                        font-size: $font-xs;
+                        text-transform: uppercase;
+                    }
+                }
+            }
+        }
+
+        .wireframe-images {
+            display: flex;
+            justify-content: space-between;
+
+            .wireframe-image {
+                height: 555px;
+                width: 225px;
+                background-color: $gray;
+                box-shadow: 0 2px 4px 0 rgba(0,0,0,.5);
+            }
+        }
+
+        .final-design-image {
+            background-color: $white;
+            height: 700px;
+        }
+    }
+}
