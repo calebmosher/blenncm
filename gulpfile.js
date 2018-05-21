@@ -22,7 +22,7 @@ gulp.task("html", function() {
 
 // Assets
 gulp.task("assets", function () {
-	return gulp.src("src/assets/*")
+	return gulp.src("src/assets/**")
 		.pipe(gulp.dest("public/assets"))
 		.pipe(notify("Finished Assets"));
 });
@@ -80,6 +80,6 @@ gulp.task("default", ["html", "assets", "browserify", "sass"]);
 gulp.task("watch", ["default"], function() {
 	gulp.watch("src/js/**/*.js", ["browserify"]);
 	gulp.watch("src/scss/**/*.scss", ["sass"]);
-	gulp.watch("src/html/**/*.html", ["html"]);
+	gulp.watch("src/html/**", ["html"]);
 	gulp.watch("src/assets/**", ["assets"]);
 });

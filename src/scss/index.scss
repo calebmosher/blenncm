@@ -278,6 +278,54 @@ main {
 			}
 		}
 	}
+
+	.gallery {
+		width: 100%;
+		height: 500px;
+		overflow: hidden;
+		position: relative;
+
+		ul {
+			min-width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			list-style-type: none;
+			transition: left 300ms ease-in-out;
+		}
+
+		li {
+			float: left;
+			height: 100%;
+			width: 100%;
+			background-position: top center;
+			background-repeat: no-repeat;
+			background-size: contain;
+		}
+
+		.arrow {
+			width: 24px;
+			height: 24px;
+			border-left: 5px solid $black;
+			border-bottom: 5px solid $black;
+			position: absolute;
+			top: 50%;
+			margin-top: -12px;
+			cursor: pointer;
+			z-index: 3;
+
+			&.left {
+				left: 10px;
+				transform: rotate(45deg);
+			}
+
+			&.right {
+				right: 10px;
+				transform: rotate(-135deg);
+			}
+		}
+	}
 }
 
 
