@@ -51,6 +51,12 @@
                     }
                 }
             }
+
+            .final {
+                .final-design-image {
+                    background-image: url("/assets/#{$project}/final.png");
+                }
+            }
         }
     }
 
@@ -360,6 +366,7 @@
                         background-position: center;
                         background-repeat: no-repeat;
                         background-size: cover;
+                        border-radius: 25px;
                     }
                 }
             }
@@ -376,8 +383,22 @@
         }
 
         .final-design-image {
-            background-color: $white;
-            height: 700px;
+            height: 600px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            position: relative;
+
+            &.mobile {
+                video {
+                    position: absolute;
+                    top: 20px;
+                    left: 50%;
+                    width: 246px;
+                    margin-left: -127px;
+                    border-radius: 26px;
+                }
+            }
         }
     }
 
