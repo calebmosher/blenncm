@@ -5,17 +5,25 @@
 
 
  main.my-work {
-    &.shopstyle {
+    @mixin section-color($color) {
         .title-band {
-            background-color: #000;
-
-            .copy {
-                color: $white;
-            }
+            background-color: $color;
         }
 
         section .section-title {
-            color: #000;
+            color: $color;
+        }
+    }
+
+    &.bloom {
+        @include section-color(#00baff);
+    }
+
+    &.shopstyle {
+        @include section-color($black);
+
+        .title-band .copy {
+            color: $white;
         }
 
         section .phases .phase {
@@ -24,23 +32,11 @@
     }
 
     &.health-and-beauty {
-        .title-band {
-            background-color: #ff588e;
-        }
-
-        section .section-title {
-            color: #ff588e;
-        }
+        @include section-color(#ff588e);
     }
 
     &.mirror {
-        .title-band {
-            background-color: #ffa561;
-        }
-
-        section .section-title {
-            color: #ffa561;
-        }
+        @include section-color(#ffa561);
     }
 
     .title-band {
@@ -85,6 +81,12 @@
             background-color: $gray;
         }
 
+        &.conclusion {
+            .section-content li:not(:last-child) {
+                margin-bottom: 5px;
+            }
+        }
+
         .section-title {
             width: 200px;
             float: left;
@@ -108,7 +110,7 @@
             }
 
             .bullet-header {
-                margin-bottom: 0;
+                margin-bottom: 5px;
             }
 
             ul {
@@ -192,6 +194,9 @@
                     &.hex-F6F6F6 { background-color: #F6F6F6; }
                     &.hex-FF588E { background-color: #FF588E; }
                     &.hex-BD466D { background-color: #BD466D; }
+                    &.hex-E8E8E8 { background-color: #E8E8E8; }
+                    &.hex-00BAFF { background-color: #00BAFF; }
+                    &.hex-CBF7FE { background-color: #CBF7FE; }
 
                     .name {
                         box-sizing: content-box;
