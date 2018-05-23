@@ -13,6 +13,10 @@
         section .section-title {
             color: $color;
         }
+
+        .gallery .dots-container .dot.active {
+            background-color: $color;
+        }
     }
 
     $projects: (
@@ -217,7 +221,7 @@
 
                     &.phase-ia {
                         background-image: url("/assets/icon-ia.svg");
-                        background-size: 85%;
+                        background-size: auto 110px;
                     }
 
                     &.phase-ixd {

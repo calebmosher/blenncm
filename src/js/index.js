@@ -66,9 +66,17 @@ function createGallery(gallery) {
     var currentIndex = 0;
     var indexMap = {};
 
+    var dotsContainer = document.createElement('div');
+    dotsContainer.classList.add('dots-container');
+
     slides.forEach(function(slide, i) {
         slide.style.width = galleryWidth + 'px';
         indexMap[i] = i * galleryWidth;
+
+        var dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (!i) dot.classList.add('active');
+        dotsContainer.appendChild(dot);
     });
 
     slidesContainer.style.width = (galleryWidth * slides.length) + 'px';
@@ -76,6 +84,7 @@ function createGallery(gallery) {
 
     var leftArrow = document.createElement('div');
     var rightArrow = document.createElement('div');
+    var dots = dotsContainer.querySelectorAll('.dot');
 
     leftArrow.classList.add('arrow', 'left');
     rightArrow.classList.add('arrow', 'right');
@@ -91,9 +100,16 @@ function createGallery(gallery) {
     slidesContainer.addEventListener('transitionend', function() {
         isTransitioning = false;
     });
+    dots.forEach(function(dot, i) {
+        dot.addEventListener('click', function() {
+            setCurrent(i);
+        });
+    });
+
 
     gallery.appendChild(leftArrow);
     gallery.appendChild(rightArrow);
+    gallery.appendChild(dotsContainer);
 
     function previous() {
         if (currentIndex <= 0) return;
@@ -107,9 +123,17 @@ function createGallery(gallery) {
         transition();
     }
 
+    function setCurrent(newIndex) {
+        currentIndex = newIndex;
+        transition();
+    }
+
     function transition() {
         slidesContainer.style.left = '-' + indexMap[currentIndex] + 'px';
         isTransitioning = true;
+
+        dots.forEach(function(dot) { dot.classList.remove('active') });
+        dots[currentIndex].classList.add('active');
     }
 }
 
