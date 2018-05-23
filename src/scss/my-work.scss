@@ -56,6 +56,10 @@
                 }
             }
 
+            .journey-map .journey-map-image {
+                background-image: url("/assets/#{$project}/journey-map.jpg");
+            }
+
             .final {
                 .final-design-image {
                     background-image: url("/assets/#{$project}/final.png");
@@ -353,8 +357,11 @@
             .wireframe-image {
                 height: 555px;
                 width: 225px;
-                background-color: $white;
                 box-shadow: 0 2px 4px 0 rgba(0,0,0,.5);
+                background-color: $white;
+                background-size: 100% auto;
+                background-repeat: no-repeat;
+                background-position: top center;
             }
 
             .gallery {
@@ -382,8 +389,10 @@
         }
 
         .journey-map-image {
-            background-color: $gray;
-            height: 700px;
+            height: 550px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
         }
 
         .final-design-image {

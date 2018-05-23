@@ -164,3 +164,73 @@ function createGallery(gallery) {
 
 
 
+/* ---------------------------------------- *\
+ * Viewer
+\* ---------------------------------------- */
+
+var viewer = document.querySelector('.viewer');
+var viewerTriggers = document.querySelectorAll('[data-viewer-id]');
+
+if (viewer && viewerTriggers.length) {
+    createViewer();
+}
+
+function createViewer() {
+    var slides = viewer.querySelectorAll('img');
+    var currentIndex = 0;
+
+    var leftArrow = document.createElement('div');
+    var rightArrow = document.createElement('div');
+    var closeButton = document.createElement('div');
+
+    leftArrow.classList.add('arrow', 'left');
+    rightArrow.classList.add('arrow', 'right');
+    closeButton.classList.add('close');
+
+    leftArrow.addEventListener('click', function() { previous() });
+    rightArrow.addEventListener('click', function() { next() });
+    closeButton.addEventListener('click', function() { closeViewer() });
+
+    viewer.appendChild(leftArrow);
+    viewer.appendChild(rightArrow);
+    viewer.appendChild(closeButton);
+
+    function previous() {
+        if (currentIndex <= 0) return;
+        --currentIndex;
+        transition();
+    }
+    function next() {
+        if (currentIndex >= slides.length - 1) return;
+        ++currentIndex;
+        transition();
+    }
+    function transition() {
+        slides.forEach(function(slide) { slide.classList.remove('active') });
+        slides[currentIndex].classList.add('active');
+    }
+
+    function openViewer(index) {
+        document.body.classList.add('lock-scroll');
+        viewer.classList.add('visible');
+        currentIndex = index;
+        transition();
+    }
+    function closeViewer() {
+        document.body.classList.remove('lock-scroll');
+        viewer.classList.remove('visible');
+    }
+
+    viewerTriggers.forEach(function(trigger) {
+        trigger.addEventListener('click', function() { openViewer(Number(trigger.dataset.viewerId)) });
+    });
+    document.body.addEventListener('keyup', function(e) {
+        if (e.which === 27) closeViewer();
+        if (e.which === 37) previous();
+        if (e.which === 39) next();
+    });
+}
+
+
+
+
