@@ -18,7 +18,7 @@ function submitForm(e) {
 
     var xhr = new XMLHttpRequest();
     xhr.open('POST', '/handler/index.php');
-
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     var data = 'name=' + formName.value + '&email=' + formEmail.value + '&message=' + formMessage.value;
 
     xhr.onload = function() {
