@@ -1,5 +1,10 @@
 <?
 
+if ($_POST["email"] == "") {
+    http_response_code(500);
+    die();
+}
+
 $data = (object) array(
     name => sanitize_data($_POST["name"]),
     email => sanitize_data($_POST["email"]),
@@ -27,6 +32,9 @@ $mail->message =
     "Message:\n" .
     $data->message;
 
-echo mail($mail->to, $mail->subject, $mail->message);
+if (!mail($mail->to, $mail->subject, $mail->message)) {
+    http_response_code(500);
+    die();
+}
 
 ?>

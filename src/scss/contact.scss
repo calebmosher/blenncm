@@ -28,4 +28,28 @@ main.contact {
             margin-bottom: 100px;
         }
     }
+
+    .api-message {
+        margin-top: 50px;
+        font-size: $font-sm;
+        font-family: $copy;
+        text-align: center;
+        display: none;
+
+        &.fail {
+            color: $gray-dark;
+        }
+
+        &.visible {
+            display: block;
+        }
+
+        a {
+            color: $black;
+
+            &:hover {
+                color: $strawberry;
+            }
+        }
+    }
 }

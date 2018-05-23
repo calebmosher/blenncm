@@ -4,23 +4,30 @@
  */
 
 
-var formSubmitButton = document.querySelector('.contact-form .button');
-if (formSubmitButton) formSubmitButton.addEventListener('click', submitForm);
-
 var form = document.querySelector('.contact-form');
-if (form) form.addEventListener('click', submitForm);
+var formSubmitButton = document.querySelector('.contact-form .button');
+if (form && formSubmitButton) formSubmitButton.addEventListener('click', submitForm);
 
-function submitForm() {
+var formName = form.querySelector('.name');
+var formEmail = form.querySelector('.email');
+var formMessage = form.querySelector('.message');
+
+function submitForm(e) {
+    e.preventDefault();
+    document.querySelectorAll('.api-message').forEach(function(el) { el.classList.remove('visible') });
+
     var xhr = new XMLHttpRequest();
     xhr.open('POST', '/handler/index.php');
 
-    var data =
-        'name=' + form.querySelector('.name').value
-        + '&email=' + form.querySelector('.email').value
-        + '&message=' + form.querySelector('.message').value
+    var data = 'name=' + formName.value + '&email=' + formEmail.value + '&message=' + formMessage.value;
 
     xhr.onload = function() {
-        console.log(xhr);
+        if (xhr.status !== 200) {
+            document.querySelector('.api-message.fail').classList.add('visible');
+            return;
+        }
+        document.querySelector('.api-message.success').classList.add('visible');
+        formName.value = formEmail.value = formMessage.value = '';
     };
 
     xhr.send(data);
