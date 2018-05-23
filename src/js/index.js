@@ -12,19 +12,18 @@ if (form) form.addEventListener('click', submitForm);
 
 function submitForm() {
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', '/handler');
+    xhr.open('POST', '/handler/index.php');
 
-    var data = {
-        name: form.querySelector('.name').value,
-        email: form.querySelector('.email').value,
-        message: form.querySelector('.message').value
-    };
+    var data =
+        'name=' + form.querySelector('.name').value
+        + '&email=' + form.querySelector('.email').value
+        + '&message=' + form.querySelector('.message').value
 
     xhr.onload = function() {
         console.log(xhr);
     };
 
-    xhr.send(JSON.stringify(data));
+    xhr.send(data);
 }
 
 var moodboard = document.querySelector('.moodboard .board');

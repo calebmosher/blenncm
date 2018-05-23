@@ -14,7 +14,7 @@ function sanitize_data($data) {
 }
 
 $mail = (object) array(
-    to => "blennmosher@gmail.com",
+    to => "me@blenncm.com",
     subject => "Blenncm Contact",
     message => ""
 );
