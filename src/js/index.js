@@ -4,13 +4,24 @@
  */
 
 
+
+/* ---------------------------------------- *\
+ * Contact Form
+\* ---------------------------------------- */
+
 var form = document.querySelector('.contact-form');
 var formSubmitButton = document.querySelector('.contact-form .button');
-if (form && formSubmitButton) formSubmitButton.addEventListener('click', submitForm);
+var formName;
+var formEmail;
+var formMessage;
 
-var formName = form.querySelector('.name');
-var formEmail = form.querySelector('.email');
-var formMessage = form.querySelector('.message');
+if (form && formSubmitButton) {
+    formSubmitButton.addEventListener('click', submitForm);
+
+    formName = form.querySelector('.name');
+    formEmail = form.querySelector('.email');
+    formMessage = form.querySelector('.message');
+}
 
 function submitForm(e) {
     e.preventDefault();
@@ -32,6 +43,12 @@ function submitForm(e) {
 
     xhr.send(data);
 }
+
+
+
+/* ---------------------------------------- *\
+ * Moodboard
+\* ---------------------------------------- */
 
 var moodboard = document.querySelector('.moodboard .board');
 if (moodboard) setTimeout(function() { createMoodboard(moodboard) }, 1000);
@@ -60,6 +77,12 @@ function createMoodboard(board) {
         }, 25);
     }, 1000);
 }
+
+
+
+/* ---------------------------------------- *\
+ * Galleries
+\* ---------------------------------------- */
 
 var galleries = document.querySelectorAll('.gallery');
 if (galleries.length) galleries.forEach(function(gallery) { createGallery(gallery) });
@@ -112,7 +135,6 @@ function createGallery(gallery) {
         });
     });
 
-
     gallery.appendChild(leftArrow);
     gallery.appendChild(rightArrow);
     gallery.appendChild(dotsContainer);
@@ -122,18 +144,15 @@ function createGallery(gallery) {
         --currentIndex;
         transition();
     }
-
     function next() {
         if (currentIndex >= slides.length - 1) return;
         ++currentIndex;
         transition();
     }
-
     function setCurrent(newIndex) {
         currentIndex = newIndex;
         transition();
     }
-
     function transition() {
         slidesContainer.style.left = '-' + indexMap[currentIndex] + 'px';
         isTransitioning = true;
