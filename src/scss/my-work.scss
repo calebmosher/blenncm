@@ -82,6 +82,10 @@
         section .phases .phase {
             width: 175px;
         }
+
+        .journey-map .journey-map-image {
+            height: 700px;
+        }
     }
 
     &.health-and-beauty {
@@ -90,6 +94,10 @@
 
     &.mirror {
         @include section-color(#ffa561);
+
+        section .wireframe-images .wireframe-image:last-child {
+            background-color: #919191;
+        }
     }
 
     .title-band {
@@ -362,6 +370,14 @@
                 background-size: 100% auto;
                 background-repeat: no-repeat;
                 background-position: top center;
+                cursor: pointer;
+            }
+
+            .wireframe-image-mobile {
+                height: 475px;
+                width: 220px;
+                background-repeat: no-repeat;
+                background-position: top center;
             }
 
             .gallery {
@@ -384,8 +400,10 @@
         }
 
         .sketches-image {
-            background-color: $gray;
             height: 500px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
         }
 
         .journey-map-image {
@@ -405,11 +423,21 @@
             &.mobile {
                 video {
                     position: absolute;
-                    top: 20px;
+                    top: 21px;
                     left: 50%;
                     width: 246px;
                     margin-left: -127px;
                     border-radius: 26px;
+                }
+            }
+
+            &.desktop {
+                video {
+                    position: absolute;
+                    top: 26px;
+                    left: 50%;
+                    width: 672px;
+                    margin-left: -336px;
                 }
             }
         }
