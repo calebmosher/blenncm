@@ -84,6 +84,10 @@
     &.broll-wine {
         @include section-color(#BAA05D);
 
+        .title-band .header {
+            color: $black;
+        }
+
         .branding-guidelines-image {
             background-image: url("/assets/broll-wine/branding-guidelines.jpg");
             background-repeat: no-repeat;
