@@ -157,6 +157,13 @@
             font-size: $font-md;
             font-weight: 600;
             text-transform: uppercase;
+
+            @include mq(767px) {
+                width: 100%;
+                float: none;
+                text-align: center;
+                margin-bottom: 50px;
+            }
         }
 
         .section-content {
@@ -164,6 +171,11 @@
             margin-left: 200px;
             font-family: $copy;
             font-size: $font-sm;
+
+            @include mq(767px) {
+                max-width: 100%;
+                margin-left: 0;
+            }
 
             p,
             ul {
@@ -192,6 +204,10 @@
             padding-top: 60px;
             clear: both;
 
+            @include mq(767px) {
+                padding-top: 0;
+            }
+
             .content-full-container:not(:last-child) {
                 margin-bottom: 60px;
             }
@@ -210,13 +226,27 @@
             display: flex;
             justify-content: space-between;
 
+            @include mq(767px) {
+                display: block;
+            }
+
             .phase {
                 width: 25%;
                 text-align: center;
 
+                @include mq(767px) {
+                    width: 100%;
+                    margin-bottom: 50px;
+                    @include clearfix;
+                }
+
                 .header {
                     text-transform: uppercase;
                     font-size: $font-sm;
+
+                    @include mq(767px) {
+                        min-height: 38px;
+                    }
                 }
 
                 .image {
@@ -226,6 +256,11 @@
                     background-size: contain;
                     background-position: center;
                     background-repeat: no-repeat;
+
+                    @include mq(767px) {
+                        width: 50%;
+                        float: left;
+                    }
 
                     &.phase-research {
                         background-image: url("/assets/icon-research.svg");
@@ -243,7 +278,14 @@
                     &.phase-ui {
                         background-image: url("/assets/icon-ui.svg");
                     }
+                }
 
+                .copy {
+                    @include mq(767px) {
+                        width: 50%;
+                        float: left;
+                        text-align: left;
+                    }
                 }
             }
         }

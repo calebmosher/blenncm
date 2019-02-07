@@ -196,6 +196,10 @@ main {
 			position: relative;
 			@include clearfix;
 
+			&.project-0 .image {
+				background-image: url("/assets/cover-broll-wine.png");
+			}
+
 			&.project-1 .image {
 				background-image: url("/assets/cover-bloom.jpg");
 			}
@@ -288,6 +292,11 @@ main {
 		height: 550px;
 		overflow: hidden;
 		position: relative;
+
+		@include mq(767px) {
+			height: 0;
+			padding-bottom: 75%;
+		}
 
 		ul {
 			min-width: 100%;
